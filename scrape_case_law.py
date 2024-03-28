@@ -9,9 +9,9 @@ def case_law_results():
     print("Extracting case law results..")
 
     params = {
-        "api_key": os.getenv("API_KEY"),  # SerpApi API key
+        "api_key": GoogleSearch.SERP_API_KEY,  # SerpApi API key
         "engine": "google_scholar",       # Google Scholar search results
-        "q": "data center",               # search query
+        "q": "e",               # search query = e because it is the most common letter in the English language
         "hl": "en",                       # language
         "start": "0",                     # first page
         "as_sdt": "2006"                  # case law results. "6" param will work the same way as "2006"
@@ -67,9 +67,6 @@ def case_law_results():
                 "cited_by_count": cited_by_count,
                 "cited_by_link": cited_by_link,
                 "cited_by_id": cited_by_id,
-                "total_versions": total_versions,
-                "all_versions_link": all_versions_link,
-                "all_versions_id": all_versions_id,
                 "file_format": file_format,
                 "file_title": file_title,
                 "file_link": file_link
