@@ -15,7 +15,7 @@ def case_law_results():
         "hl": "en",                       # language
         "start": "0",                     # first page
         "as_sdt": "2006"                  # case law results. "6" param will work the same way as "2006"
-    }
+    } #todo randomize the date and get only a 100 citations
     search = GoogleSearch(params)
 
     case_law_results_data = []

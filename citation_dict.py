@@ -120,7 +120,7 @@ def extract_id_from_link(link):
 '''
 if __name__ == '__main__':
     df = pd.read_csv('google_scholar_case_law_results.csv')
-
+    
     #todo get the dictionary from the csv
     adjacency_data = {}
 
@@ -132,7 +132,8 @@ if __name__ == '__main__':
         adjacency_data[case_id] = citations
         print(f"Citations for case ID {case_id}: {citations}")
     adjacency_df = pd.DataFrame(adjacency_data)
-    adjacency_df.to_csv('adjacency_matrix.csv', index=False)
+    #todo change the file type to txt
+    adjacency_df.to_json('adjacency_matrix.json', index=False)
 # if __name__ == '__main__':
 #     # Example usage
 #     #TODO convert to for loop that gets cited_by_link from the csv and then calls fetch_citations

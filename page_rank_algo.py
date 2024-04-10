@@ -1,2 +1,20 @@
+import networkx as nx
+
+'''
+https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.pagerank_alg.pagerank.html
+
+we need to change page rank algo by:
+1. personalization vector
+so sort by date
+look at 3.3 in https://pdf.sciencedirectassets.com/273584/1-s2.0-S1751157712X00038/1-s2.0-S1751157712000119/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIEeJewPu2UFoa9UW10om%2Fh2MWMkfSrh4fXryH%2BCFL9mMAiEA93oOjeDljhpDdK%2FxvLI2UNfna4P3GjxxqQM03m5NwuQquwUI3f%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAFGgwwNTkwMDM1NDY4NjUiDEm%2FXTJllo1hK9n9TyqPBYR2FFswpoIlW0WGxLwJUA2ODmmt1weEGlBhoYm38YRl8yyA0N56AKf%2B4P1W9yYK%2BYGLr%2FIkKS6Gpn%2BEGPbkjZyx%2F97JbPt51%2BIqcg1BraF%2BjUAIRQ4YdoXt8U63LEzPUthY1cpBYJiDd%2B6K7zda1WSPlVG4vmFBoE9DWKIZdrix2h9Aq3DBF6HjLo%2FTp4%2FXAvUrKtxNjWM8mPh5IXTyZE1cSS0cwpr2n8kLkXZpL1ISKPU8BKwzO6fNtMt7TMJf0RkRGGkWhKIWxMrcjYwAdtjP34S%2BMCIIILDJI3PpGEJwezXzpJgyHUYrvrMhZ7cGuYzDUQojFPSGUSdZsNs2KcduWleGacdaBdGGT8ZBI77CHbmcUfCg8BZjq1tQ39uXtRMOniWc3NlO9Cca3q1tReJvS8lw7eB7IRx0bWNPfsE%2BZJ2C2plCo%2Fg%2B%2F28nATN11IsM6kIMIZjS63wjeSvdMhKcYegk9RKGnBE1PkYqrq%2FD9UA%2BFatyR0IHhqbINuMReEjDTrkGyInu3DbwUgBMJsZwYGIX4EyMJI041WciXl2BdzM7go9Ej3B3MTTPZ6%2FaJRGLoPpoTsfwm2Mjz9u4Ne9GtFFIuYeEMDCidTi%2F9GupYuP6kc11dNQ4FMmrPXrGSZSVkTMdWICBvNLzoGMHT%2Fl7EGjvaQdcdXyHbpZ0J%2FJCAdmx%2BR6Z3uL0teB%2BrBz%2Fw%2FlO8Bf%2FeLTUIXdIFId0gHTpx0ski%2BXDQHUHTJx0ycNcKCUgzr5jguocqf2ZZTocwAOg3JHTRDnZ2GqfaCUw0jbTbTf38SFUZgJnxgRg8u92QRPq7IxstJTjepFUwrRGsMNGDI%2BwDgygNwrkMgaL0w59nBrPYuLzo6zY%2Bij8z0wwvJ6XsAY6sQEcZepbnfYS%2B%2FTQyvqfW%2FDV7Jp2MaJWH%2F85BmJPUlET58hWaqBQX4Fq8CBaQbwSEhx%2BNKvSQudFAyytTyOIIMfcAM32nSlqILNqhXb4e4deXOC8HKntvr%2BiyuSc5w%2BMcugfa4p0yCLpf0D9HmFNDa26iU56nxJzeLk8SeQW3JC5eMtFK1V4WOsg5yii8lPQyU%2Bi7xSHRI%2FC1xTwCgsRQ%2FaQgpIUrvws4vz6E53%2BBu0BCB4%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240328T205256Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYSQOZYEWE%2F20240328%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=822541461af938213f3342206a1d461b73337f574941e24e125eb8609418fca7&hash=e81e4a2cef748154c7ba2bee9c28d6cc68057fedc072fc13c5f030b2233b207e&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S1751157712000119&tid=spdf-0e60dd37-fb99-4029-bd72-937a3659c212&sid=ca8276e96b67474987281b22a99654759a82gxrqa&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=0f175c5301065e5e005e&rr=86ba81b9ff0e4cf4&cc=us
+
+2. weights
+to weight the graph it we would use section 2.1 in https://kristery.github.io/docs/WSDMCup2016_paper_7.pdf
+the weights will be the bars next to the citations
+
+these are based on date, citation relevance (bars on the side of the citation), and the proximity/location of the case
+
+add in visualization for the nodes
+'''
 def page_Rank():
-    pass
+    adjacency_matrix = nx.read_adjlist('adjacency_matrix.csv')
