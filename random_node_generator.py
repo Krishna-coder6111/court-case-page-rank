@@ -3,7 +3,8 @@ import numpy as np
 
 # Load the dataset
 data = pd.read_csv('google_scholar_case_law_results.csv')
-
+data.fillna('0', inplace=True)
+data = data[:500]
 # Get the number of cases
 n = len(data)
 
@@ -51,3 +52,6 @@ for i in range(adj_matrix.shape[0]):
 citations_df = pd.DataFrame({'source': source, 'target': target, 'weight': weight})
 citations_df.to_csv('citations.csv')
 print(citations_df)
+
+#1000 citations = 637000 rows of connections - more than 30 mins maybe
+#200 citations = 39266 rows 2mins to run

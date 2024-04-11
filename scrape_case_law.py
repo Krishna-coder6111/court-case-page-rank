@@ -14,13 +14,14 @@ def case_law_results():
         "q": "e",               # search query = e because it is the most common letter in the English language
         "hl": "en",                       # language
         "start": "0",                     # first page
-        "as_sdt": "2006"                  # case law results. "6" param will work the same way as "2006"
+        # "as_sdt": "2006"                  # case law results. "6" param will work the same way as "2006"
     } #todo randomize the date and get only a 100 citations
     search = GoogleSearch(params)
 
     case_law_results_data = []
 
-    while True:
+    #while True:
+    for _ in range(200):
         results = search.get_dict()
 
         if "error" in results:
